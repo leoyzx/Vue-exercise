@@ -5,6 +5,8 @@
             <mt-header fixed title="顶部导航栏"></mt-header>
         </div>
 
+        <router-view></router-view>
+
         <div class="footer">
             <mt-tabbar v-model="selected">
 
