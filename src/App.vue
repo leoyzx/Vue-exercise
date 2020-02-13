@@ -4,8 +4,9 @@
         <div class="header">
             <mt-header fixed title="顶部导航栏"></mt-header>
         </div>
-
-        <router-view></router-view>
+        <transition>
+            <router-view></router-view>
+        </transition>
 
         <div class="footer">
             <mt-tabbar v-model="selected">
@@ -62,12 +63,26 @@
 
 <style lang="scss" scoped>
     .app-container {
-         padding-top: 40px
+         padding-top: 40px;
+        overflow-x: hidden;
      }
     .footer{
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
+    }
+    .v-enter{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    .v-leave-to{
+        opacity: 0;
+        transform: translateX(-100%);
+        position: absolute;
+    }
+    .v-enter-active,
+    .v-leave-active{
+        transition: all 0.5s ease;
     }
 </style>
